@@ -8,9 +8,15 @@ namespace TowersOfHanoiGame
 {
     public class HanoiGame
     {
-        public void Play()
+
+        public static int ddisk = 0;
+        public static int ffrom = 0;
+        public static int tto = 0;
+        public static int aaux = 0;
+
+        public void Setup()
         {
-            
+
 
             //輸入高度
             Console.WriteLine("請輸入河內塔的高度(限制輸入整數1~100，若輸入為文字或小數則自動設定為1)：");
@@ -121,23 +127,34 @@ namespace TowersOfHanoiGame
             }
             #endregion
 
-            Hanoi(disk, from, to, aux);
+            //Hanoi(disk, from, to, aux);
+            ddisk = disk;
+            ffrom = from;
+            tto = to;
+            aaux = aux;
             Console.ReadKey();
         }
 
-        public void Hanoi(int Disk, int Src, int Dest, int Aux)
+
+        public void Play()
         {
-            //參考演算法: http://notepad.yehyeh.net/Content/DS/CH02/4.php
-            //參考演算法: http://program-lover.blogspot.com/2008/06/tower-of-hanoi.html
-            if (Disk == 1)
+
+            Hanoi(ddisk, ffrom, tto, aaux);
+
+            void Hanoi(int Disk, int Src, int Dest, int Aux)
             {
+                //參考演算法: http://notepad.yehyeh.net/Content/DS/CH02/4.php
+                //參考演算法: http://program-lover.blogspot.com/2008/06/tower-of-hanoi.html
+                if (Disk == 1)
+                {
                     Console.WriteLine($"將第{Disk}個圓盤由{Src}移到{Dest} ");
-            }
-            else
-            {
-                Hanoi(Disk - 1, Src, Aux, Dest);
-                Console.WriteLine($"將第{Disk}個圓盤由{Src}移到{Dest} ");
-                Hanoi(Disk - 1, Aux, Dest, Src);
+                }
+                else
+                {
+                    Hanoi(Disk - 1, Src, Aux, Dest);
+                    Console.WriteLine($"將第{Disk}個圓盤由{Src}移到{Dest} ");
+                    Hanoi(Disk - 1, Aux, Dest, Src);
+                }
             }
         }
     }
