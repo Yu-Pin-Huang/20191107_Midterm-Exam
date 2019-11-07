@@ -11,7 +11,7 @@ namespace TowersOfHanoiGame
         public void Setup()
         {
 
-
+            
 
             //輸入高度
             Console.WriteLine("請輸入河內塔的高度(限制輸入整數1~100，若輸入為文字或小數則自動設定為1)：");
