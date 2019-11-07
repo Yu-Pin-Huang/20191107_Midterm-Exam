@@ -11,7 +11,7 @@ namespace TowersOfHanoiGame
         static void Main(string[] args)
         {
             HanoiGame game = new HanoiGame();
-            game.Setup();
+            //game.Setup();
             game.Play();
 
             Console.ReadKey();
